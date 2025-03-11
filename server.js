@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
 
+//----------Connect with MongoDB----------
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on('connected', () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
@@ -79,11 +80,12 @@ app.get('/pokemons/:pokemonId/edit', async (req, res) => {
 
 //--------------- Update Pokemon ------------------------
 
-app.put('pokemons/:pokemonId', async (req, res) => {
+app.put('/pokemons/:pokemonId', async (req, res) => {
     req.body.caught = !!req.body.caught;
     await Pokemon.findByIdAndUpdate(req.params.pokemonId, req.body);
     res.redirect(`/pokemons/${req.params.pokemonId}`);
 });
+
 
 app.listen(3000, () => {
     console.log("Listening to port 3000");
