@@ -13,10 +13,9 @@ body {
 
 h1,
 h2 {
+    font-size: 3.5em;
     font-family: 'Fredoka One', cursive;
-    /* Playful font for headings */
     color: #ff4444;
-    /* Pokémon red for a vibrant touch */
     text-align: center;
 }
 
@@ -78,19 +77,15 @@ li.pokemon-card {
     padding: 15px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* Shadow for card-like effect */
     transition: transform 0.2s;
-    /* Smooth hover animation */
 }
 
 li.pokemon-card:hover {
     transform: scale(1.05);
-    /* Slight zoom on hover for interactivity */
 }
 
 .type {
     background: #ddd;
-    /* Light gray badge for Pokémon type */
     padding: 2px 5px;
     border-radius: 5px;
     font-size: 0.8em;
@@ -129,7 +124,6 @@ form input[type="checkbox"] {
 
 form button {
     background: #ff4444;
-    /* Pokemon red for buttons */
     color: #fff;
     border: none;
     padding: 10px 15px;
@@ -147,23 +141,16 @@ form button:hover {
     background: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     max-width: 600px;
     margin: 20px auto;
     text-align: center;
 }
 
 .pokemon-details h1 {
-    margin-top: 0;
+    margin-top: 20;
 }
 
-.pokemon-details img {
-    max-width: 200px;
-    height: auto;
-    display: block;
-    margin: 0 auto 20px;
-    /* center the image */
-}
 
 .pokemon-details p {
     font-size: 1.1em;
@@ -188,4 +175,12 @@ a.button {
 button:hover,
 a.button:hover {
     background: #cc3333;
+}
+
+.intro-text {
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.5em;
+    color: #101011;
+    margin-bottom: 20px;
 }
