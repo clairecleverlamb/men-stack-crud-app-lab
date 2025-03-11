@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create a Pokemon</title>
+    <title>Catch a Pokémon</title>
 </head>
 <body>
-    <h1>Create a new Pokemon!</h1>
+    <h1>Catch a New Pokémon!</h1>
+    <form action="/pokemons" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        
+        <label for="type">Type:</label>
+        <input type="text" id="type" name="type" required><br>
+        
+        <label for="level">Level (1-100):</label>
+        <input type="number" id="level" name="level" min="1" max="100" required><br>
+        
+        <label for="caught">Caught:</label>
+        <input type="checkbox" id="caught" name="caught"><br>
+        
+        <button type="submit">Catch!</button>
+    </form>
+    <a href="/pokemons">Back to Pokémons</a>
 </body>
 </html>
