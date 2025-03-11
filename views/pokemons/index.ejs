@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
     <title>Pokemon Index</title>
 </head>
+
 <body>
-    <h1>All Pokemons</h1>
-    <a href="/pokemons/new">Catch a New Pokémon</a>
-    <ul>
-        <% pokemons.forEach(pokemon => { %>
-            <li>
-                <a href="/pokemons/<%= pokemon._id  %>"> <%= pokemon.name %></a>
-            </li>
-        <% }); %>
-    </ul>
+    <div class="container">
+        <a href="/" class="button">Back to Home</a>
+        <h1>All Pokemons</h1>
+        <a href="/pokemons/new">Catch a New Pokémon</a>
+        <ul>
+            <% pokemons.forEach(pokemon=> { %>
+                <li class="pokemon-card">
+                    <a href="/pokemons/<%= pokemon._id  %>">
+                        <h3>
+                            <%= pokemon.name %>
+                        </h3>
+                    </a>
+                </li>
+                <% }); %>
+        </ul>
+    </div>
 </body>
+
 </html>

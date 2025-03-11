@@ -4,27 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
     <title>
         <%= pokemon.name %>
     </title>
 </head>
 
 <body>
-    <h1>
-        <%= pokemon.name %>
-    </h1>
-    <p>Type: <%= pokemon.type %>
-    </p>
-    <p>Level: <%= pokemon.level %>
-    </p>
-    <% if (pokemon.isCustom) { %>
-        <p>Caught: <%= pokemon.caught ? 'Yes' : 'No' %>
-        </p>
-        <a href="/pokemons/<%= pokemon._id %>/edit">Edit</a>
-        <form action="/pokemons/<%= pokemon._id %>?_method=DELETE" method="POST" style="display:inline;">
-            <button type="submit">Release <%= pokemon.name %></button>
-        </form>
-    <% } %>
-    <a href="/pokemons">Back to Pokémon</a>
+    <div class="container">
+        <div class="pokemon-details">
+            <h1>
+                <%= pokemon.name %>
+            </h1>
+            <p>Type: <span class="type">
+                    <%= pokemon.type %>
+                </span>
+            </p>
+            <p>Level: <%= pokemon.level %>
+            </p>
+            <% if (pokemon.isCustom) { %>
+                <p>Caught: <%= pokemon.caught ? 'Yes' : 'No' %>
+                </p>
+                <a href="/pokemons/<%= pokemon._id %>/edit" class="button">Edit</a>
+                <form action="/pokemons/<%= pokemon._id %>?_method=DELETE" method="POST" style="display:inline;">
+                    <button type="submit">Release <%= pokemon.name %></button>
+                </form>
+                <% } %>
+                    <a href="/pokemons" class="button">Back to Pokémon</a>
+        </div>
+    </div>
 </body>
 </html>

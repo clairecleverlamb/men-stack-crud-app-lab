@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit <%= pokemon.name %></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Edit <%= pokemon.name %>
+    </title>
 </head>
+
 <body>
-  <h1>Edit <%= pokemon.name %></h1>
-  <form action="/pokemons/<%= pokemon._id %>?_method=PUT" method="POST">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" value="<%= pokemon.name %>" required><br>
-    
-    <label for="type">Type:</label>
-    <input type="text" id="type" name="type" value="<%= pokemon.type %>" required><br>
-    
-    <label for="level">Level (1-100):</label>
-    <input type="number" id="level" name="level" value="<%= pokemon.level %>" min="1" max="100" required><br>
-    
-    <label for="caught">Caught:</label>
-    <input type="checkbox" id="caught" name="caught" <%= pokemon.caught ? 'checked' : '' %>><br>
-    
-    <button type="submit">Update</button>
-  </form>
-  <a href="/pokemons">Back to Pokémon</a>
+    <div class="container">
+        <h1>Edit <%= pokemon.name %></h1>
+        <form action="/pokemons/<%= pokemon._id %>?_method=PUT" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="<%= pokemon.name %>" required><br>
+
+            <label for="type">Type:</label>
+            <input type="text" id="type" name="type" value="<%= pokemon.type %>" required><br>
+
+            <label for="level">Level (1-100):</label>
+            <input type="number" id="level" name="level" value="<%= pokemon.level %>" min="1" max="100" required><br>
+
+            <label for="caught">Caught:</label>
+            <input type="checkbox" id="caught" name="caught" <%=pokemon.caught ? 'checked' : '' %>><br>
+
+            <button type="submit">Update</button>
+        </form>
+        <a href="/pokemons">Back to Pokémon</a>
+    </div>
 </body>
+
 </html>
