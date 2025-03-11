@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= pokemon.name %></title>
+    <title>
+        <%= pokemon.name %>
+    </title>
 </head>
+
 <body>
-    <h1><%= pokemon.name %></h1>
+    <h1>
+        <%= pokemon.name %>
+    </h1>
+    <p>Type: <%= pokemon.type %>
+    </p>
+    <p>Level: <%= pokemon.level %>
+    </p>
+    <% if (pokemon.isCustom) { %>
+        <p>Caught: <%= pokemon.caught ? 'Yes' : 'No' %>
+        </p>
+        <a href="/pokemons/<%= pokemon._id %>/edit">Edit</a>
+        <form action="/pokemons/<%= pokemon._id %>?_method=DELETE" method="POST" style="display:inline;">
+            <button type="submit">Release</button>
+        </form>
+        <% } %>
+            <a href="/pokemons">Back to Pokémon</a>
 </body>
 </html>
