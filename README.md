@@ -1,6 +1,6 @@
 # Pokémon CRUD Adventure
 
-Welcome to the Pokémon CRUD Adventure! This app lets you catch, view, edit, and release your favorite Pokémon, just like a true Pokémon Trainer. Built with Express.js, MongoDB, and a dash of Pokémon magic, this app is your Pokédex for managing both wild Pokémon (from the PokéAPI) and your own custom Pokémon.
+Welcome to the Pokémon CRUD Adventure! This app lets you catch, view, edit, and release your favorite Pokémon, just like a true Pokémon Trainer. Built with Express.js, MongoDB, and a dash of Pokémon magic, this app is your Pokédex for managing both wild Pokémon (from the PokéAPI (wip)) and your own custom Pokémon (done).
 
 Whether you're a seasoned Trainer or just starting your journey, this app is perfect for capturing the fun of Pokémon while learning CRUD operations. Ready to become the very best? Let’s get started!
 
