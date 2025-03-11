@@ -13,8 +13,8 @@ const Pokemon = require('./models/pokemon.js');
 
 //---------Middleware----------------
 app.use(express.urlencoded({ extended: false }));
-// app.use(methodOverride('_method'));
-// app.use(morgan('dev'));
+app.use(methodOverride('_method'));
+app.use(morgan('dev'));
 
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on('connected', () => {
@@ -44,10 +44,46 @@ app.get('/pokemons', async (req, res) => {
 
 //-------------Show the pokemon---------------------
 app.get('/pokemons/:pokemonId', async (req, res) => {
-    const foundPokemon = await Pokemon.findById(req.params.pokemonId);
-    res.render('pokemons/show.ejs', { pokemon: foundPokemon});
-})
+    let pokemon;
+    if (mongoose.Types.ObjectId.isValid(req.params.pokemonId)){
+        pokemon = await Pokemon.findById(req.params.pokemonId);
+        if (pokemon) {
+            pokemon.isCustom = true;
+        } else {
+            const apiPokemon = await fetchPokemon();
+            pokemon = apiPokemon.find(p => p.id === req.params.pokemonId);
+            if (pokemon) {
+                pokemon.isCustom = false;
+            }
+        }
+    }
+    res.render('pokemons/show.ejs', { pokemon });
+});
 
+// -------------Delete the pokemon--------------------
+
+app.delete('/pokemons/:pokemonId', async (req, res) => {
+    await Pokemon.findByIdAndDelete(req.params.pokemonId);
+    res.redirect('/pokemons');
+  });
+
+// --------------Edit the Pokemon Form -----------------
+
+app.get('/pokemons/:pokemonId/edit', async (req, res) => {
+    const foundPokemon = await Pokemon.findById(req.params.pokemonId);
+    if (!foundPokemon) {
+      return res.status(404).send('Pokémon not found');
+    }
+    res.render('pokemons/edit.ejs', { pokemon: foundPokemon });
+  });
+
+//--------------- Update Pokemon ------------------------
+
+app.put('pokemons/:pokemonId', async (req, res) => {
+    req.body.caught = !!req.body.caught;
+    await Pokemon.findByIdAndUpdate(req.params.pokemonId, req.body);
+    res.redirect(`/pokemons/${req.params.pokemonId}`);
+});
 
 app.listen(3000, () => {
     console.log("Listening to port 3000");

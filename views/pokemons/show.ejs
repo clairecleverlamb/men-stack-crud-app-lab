@@ -22,9 +22,9 @@
         </p>
         <a href="/pokemons/<%= pokemon._id %>/edit">Edit</a>
         <form action="/pokemons/<%= pokemon._id %>?_method=DELETE" method="POST" style="display:inline;">
-            <button type="submit">Release</button>
+            <button type="submit">Release <%= pokemon.name %></button>
         </form>
-        <% } %>
-            <a href="/pokemons">Back to Pokémon</a>
+    <% } %>
+    <a href="/pokemons">Back to Pokémon</a>
 </body>
 </html>
